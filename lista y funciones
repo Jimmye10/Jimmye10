@@ -1,0 +1,12 @@
+# Calculando la longitud de la lista usando la funcion len()
+       longitud= longitud (a)
+
+       longitud de retorno
+       
+
+#Ejemplo de uso de la funcion get_list_length:
+
+#Ejemplo 1 : Calcular la longitud de una lista
+mi_lista  = [1,2,3,4,5]
+longitud = get_list_length(mi_lista)
+print(f"La logitud de la lista {mi_lista} es {longitud}.")
