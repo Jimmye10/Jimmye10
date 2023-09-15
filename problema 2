@@ -1,0 +1,5 @@
+#Creando un elmento
+elemento = Elemento("1,2,3,4,5")
+# Usando el metodo en el elemento
+resultado = use_method(elemento)
+imprimir(rsultado)
