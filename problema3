@@ -1,0 +1,15 @@
+#crea una lista vacia
+mi_lista =[]
+#Agrgar elementos a la lista usando el metodo append()
+mi_lista.append(1)
+mi_lista.append(2)
+mi_lista.append(3)
+mi_lista.append(4)
+mi_lista.append(5)
+
+return mi_lista
+
+#Ejemplo de uso de la funcion append_algoritmo()
+resultado= appen_algoritmo(6)
+ 
+print (resultado)
