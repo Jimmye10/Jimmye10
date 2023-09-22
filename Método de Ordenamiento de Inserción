@@ -1,0 +1,10 @@
+# Atravesar 1 hasta len(arr)
+    for i in range(1, len(arr)):
+        key = arr[i]
+ 
+        # Mover elementos de arr[0..i-1], que son mayores que key, a una posición por delante de su posición actual
+        j = i - 1
+        while j >= 0 and arr[j] > key:
+            arr[j + 1] = arr[j]
+            j -= 1
+        arr[j + 1] = key
