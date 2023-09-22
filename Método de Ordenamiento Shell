@@ -1,3 +1,4 @@
+def ShellSort (list):
 # Comience con una brecha grande y redúzcala con el tiempo
     n = len(arr)
     gap = n // 2
