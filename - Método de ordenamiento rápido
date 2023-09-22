@@ -1,0 +1,17 @@
+# Caso base: si la matriz está vacía o contiene solo un elemento, ya está ordenada
+    if len(arr) <= 1:
+        return arr
+ 
+    # Elegir el elemento pivote
+    pivot = arr[0]  # Choosing the first element as the pivot
+ 
+     # Dividir la matriz en dos submatrices
+    smaller = [x for x in arr[1:] if x <= pivot]  # Elementos menores o iguales que el pivote
+    greater = [x for x in arr[1:] if x > pivot]  # Elementos mayores que el pivote
+ 
+    # Ordenar recursivamente los subarreglos
+    sorted_smaller = quicksort(smaller)
+    sorted_greater = quicksort(greater)
+ 
+     # Combinando los subarreglos ordenados y el pivote
+    return sorted_smaller + [pivot] + sorted_greater
