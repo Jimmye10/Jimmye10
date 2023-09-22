@@ -1,4 +1,5 @@
-# Caso base: si la matriz está vacía o contiene solo un elemento, ya está ordenada
+def QuickSort(list):
+    # Caso base: si la matriz está vacía o contiene solo un elemento, ya está ordenada
     if len(arr) <= 1:
         return arr
  
