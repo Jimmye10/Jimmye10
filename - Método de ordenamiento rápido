@@ -1,17 +1,24 @@
-# Caso base: si la matriz está vacía o contiene solo un elemento, ya está ordenada
-    if len(arr) <= 1:
-        return arr
- 
-    # Elegir el elemento pivote
-    pivot = arr[0]  # Choosing the first element as the pivot
- 
-     # Dividir la matriz en dos submatrices
-    smaller = [x for x in arr[1:] if x <= pivot]  # Elementos menores o iguales que el pivote
-    greater = [x for x in arr[1:] if x > pivot]  # Elementos mayores que el pivote
- 
-    # Ordenar recursivamente los subarreglos
-    sorted_smaller = quicksort(smaller)
-    sorted_greater = quicksort(greater)
- 
-     # Combinando los subarreglos ordenados y el pivote
-    return sorted_smaller + [pivot] + sorted_greater
+def quick_sort(array):
+  """Ordena una lista usando el método de quicksort.
+
+  Args:
+    array: La lista a ordenar.
+
+  Returns:
+    La lista ordenada.
+  """
+
+  if len(array) <= 1:
+    return array
+
+  pivot = array[len(array) // 2]
+  smaller = [x for x in array if x < pivot]
+  larger = [x for x in array if x >= pivot]
+
+  return quick_sort(smaller) + [pivot] + quick_sort(larger)
+
+
+array = [5, 2, 4, 1, 3]
+
+print("Lista original:", array)
+print("Lista ordenada:", quick_sort(array))
