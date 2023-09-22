@@ -1,3 +1,4 @@
+def SelectionSort (list):
 # Recorrer todos los elementos de la matriz
     for i in range(len(arr)):
        # Encuentra el elemento mínimo en la matriz restante sin clasificar
