@@ -1,0 +1,37 @@
+def leer_datos():
+    """Obtiene los datos de los gastos del estudiante."""
+
+    matricula = float(input("Ingrese el monto de la matrícula: "))
+
+    alquiler = float(input("Ingrese el monto de la alquiler: "))
+
+    alimentacion = float(input("Ingrese los gastos de alimentación: "))
+
+    transporte = float(input("Ingrese los gastos de transporte: "))
+
+
+    ocio = float(input("Ingrese los gastos de ocio: "))
+
+    return matricula, alquiler, alimentacion, transporte, ocio
+
+def calcular_gastos():
+    """Calcula los gastos totales del estudiante."""
+
+
+    matricula, alquiler, alimentacion, transporte, ocio = leer_datos()
+
+
+    gastos_totales = matricula + alquiler + alimentacion + transporte + ocio
+
+    return gastos_totales
+
+def imprimir_gastos():
+    """Imprime los gastos totales del estudiante."""
+
+
+    gastos_totales = calcular_gastos()
+
+    print("Los gastos totales del estudiante son:", gastos_totales)
+
+
+imprimir_gastos()
