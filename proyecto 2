@@ -1,0 +1,59 @@
+import sqlite3
+
+# crear la base de datos
+conn = sqlite3.connect('universidad.db')
+cursor = conn.cursor()
+
+# datos del estudiante
+cursor.execute('''
+    CREATE TABLE IF NOT EXISTS Estudiantes (
+        EstudianteID INTEGER PRIMARY KEY,
+        Nombre TEXT,
+        Apellido TEXT,
+        Carrera TEXT
+    )
+''')
+
+cursor.execute('''
+    CREATE TABLE IF NOT EXISTS Notas (
+        NotaID INTEGER PRIMARY KEY,
+        EstudianteID INTEGER,
+        Materia TEXT,
+        Nota REAL,
+        FOREIGN KEY (EstudianteID) REFERENCES Estudiantes(EstudianteID)
+    )
+''')
+
+# Inserte los datos del estudiante
+cursor.executescript('''
+    INSERT OR IGNORE INTO Estudiantes (EstudianteID, Nombre, Apellido, Carrera)
+    VALUES
+        (1, 'Juan', 'Perez', 'Ingeniería'),
+        (2, 'Maria', 'Lopez', 'Medicina'),
+        (3, 'Carlos', 'Gomez', 'Derecho');
+
+    INSERT OR IGNORE INTO Notas (EstudianteID, Materia, Nota)
+    VALUES
+        (1, 'Matemáticas', 85),
+        (1, 'Física', 78),
+        (2, 'Anatomía', 92),
+        (2, 'Química', 88),
+        (3, 'Derecho Penal', 75),
+        (3, 'Derecho Civil', 82);
+''')
+
+
+cursor.execute('''
+    SELECT Estudiantes.EstudianteID, Nombre, Apellido, Carrera, AVG(Nota) AS Promedio
+    FROM Estudiantes
+    JOIN Notas ON Estudiantes.EstudianteID = Notas.EstudianteID
+    GROUP BY Estudiantes.EstudianteID, Nombre, Apellido, Carrera
+''')
+
+resultados = cursor.fetchall()
+
+for resultado in resultados:
+    print(f"Estudiante: {resultado[1]} {resultado[2]}, Carrera: {resultado[3]}, Promedio: {resultado[4]}")
+
+
+conn.close()
